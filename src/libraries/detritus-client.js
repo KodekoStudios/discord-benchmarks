@@ -37,6 +37,11 @@ client.on('ready', () => {
     console.log(`[detritus-client] Logged in as Detritus!`);
 });
 
+client.on('messageCreate', (message) => {
+    console.log(`[detritus-client] Message from ${message.author.username}: ${message.content}`);
+    console.log(`[detritus-client] ${message.timestamp / 1000}s`);
+});
+
 client.run();
 
 setInterval(sendMemoryUsage, 5000);

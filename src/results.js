@@ -26,8 +26,6 @@ function getBenchmarkResults() {
             const libraryName = data[0]?.name || file.replace('.json', '');
             if (!benchmarks[libraryName]) {
                 benchmarks[libraryName] = {
-                    cpu: 0,
-                    memory: 0,
                     heapUsed: 0,
                     heapTotal: 0,
                     rss: 0,
@@ -37,8 +35,6 @@ function getBenchmarkResults() {
                 };
             }
             data.forEach(entry => {
-                benchmarks[libraryName].cpu += entry.cpu || 0;
-                benchmarks[libraryName].memory += entry.memory || 0;
                 benchmarks[libraryName].heapUsed += entry.heapUsed || 0;
                 benchmarks[libraryName].heapTotal += entry.heapTotal || 0;
                 benchmarks[libraryName].rss += entry.rss || 0;
@@ -62,13 +58,12 @@ function calculateAverages() {
 
     const averages = Object.entries(benchmarks).map(([name, data]) => ({
         Name: name,
-        CPU: (data.cpu / data.count).toFixed(2) + ' %',
-        Memory: ((data.memory / data.count) / (1024 * 1024)).toFixed(2) + ' MB',
         HeapUsed: ((data.heapUsed / data.count) / (1024 * 1024)).toFixed(2) + ' MB',
         HeapTotal: ((data.heapTotal / data.count) / (1024 * 1024)).toFixed(2) + ' MB',
         RSS: ((data.rss / data.count) / (1024 * 1024)).toFixed(2) + ' MB',
         CPUUser: ((data.cpuUser / data.count) / 1000).toFixed(2) + ' ms',
         CPUSystem: ((data.cpuSystem / data.count) / 1000).toFixed(2) + ' ms',
+        CPUTotal: (((data.cpuUser + data.cpuSystem) / data.count) / 1000).toFixed(2) + ' ms',
     }));
 
     console.log('Average Benchmark Results:');

@@ -26,9 +26,6 @@ importers:
       oceanic.js:
         specifier: 1.11.3-dev.9ca907f
         version: 1.11.3-dev.9ca907f
-      pidusage:
-        specifier: ^3.0.2
-        version: 3.0.2
       pm2:
         specifier: ^5.4.3
         version: 5.4.3

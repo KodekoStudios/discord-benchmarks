@@ -68,6 +68,15 @@ client.events.values.READY = {
     }
 };
 
+client.events.values.MESSAGE_CREATE = {
+    data: { name: 'messageCreate' },
+    run: (message) => {
+        console.log(`[seyfert] Message from ${message.author.tag}: ${message.content}`);
+        console.log(`[seyfert] ${message.timestamp / 1000}s`);
+    }
+};
+
+
 client.start({
     token: process.env.TOKEN,
     connection: {

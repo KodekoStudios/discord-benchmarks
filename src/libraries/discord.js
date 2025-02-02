@@ -36,6 +36,11 @@ client.on('ready', () => {
     console.log(`[discord.js] Logged in as Discord.js!`);
 });
 
+client.on('messageCreate', (message) => {
+    console.log(`[discord.js] Message from ${message.author.username}: ${message.content}`);
+    console.log(`[discord.js] ${message.createdTimestamp / 1000}s`);
+});
+
 client.login(process.env.TOKEN);
 
 setInterval(sendMemoryUsage, 5000);

@@ -34,6 +34,11 @@ client.on('ready', () => {
     console.log(`[oceanic.js] Logged in as Oceanic!`);
 });
 
+client.on('messageCreate', (message) => {
+    console.log(`[oceanic.js] Message from ${message.author.username}: ${message.content}`);
+    console.log(`[oceanic.js] ${message.timestamp / 1000}s`);
+});
+
 client.connect();
 
 client.on('error', () => {

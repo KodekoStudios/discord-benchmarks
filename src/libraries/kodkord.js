@@ -13,6 +13,11 @@ client.events.set('READY', (user) => {
     console.log(`[kodkord] Logged in as Kodkord!`);
 });
 
+client.events.set('MESSAGE_CREATE', (message) => {
+    console.log(`[kodkord] Message from ${message.author.username}: ${message.content}`);
+    console.log(`[kodkord] ${message.timestamp / 1000}s`);
+});
+
 client.connect();
 
 setInterval(sendMemoryUsage, 5000);

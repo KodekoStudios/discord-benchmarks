@@ -58,8 +58,7 @@ module.exports = {
         },
         // Bot de discord.py
         {
-            name: 'discord.py',
-            interpreter: 'python3', // Especificar el intérprete de Python
+            interpreter: './.venv/bin/python3.12', // Especificar el intérprete de Python
             script: './src/libraries/discord-py.py',
             env: {
                 INTENTS: process.env.INTENTS || '53608447',

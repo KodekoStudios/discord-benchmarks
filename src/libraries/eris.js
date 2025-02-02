@@ -21,6 +21,11 @@ client.on('ready', () => {
     console.log(`[eris] Logged in as Eris!`);
 });
 
+client.on('messageCreate', (message) => {
+    console.log(`[eris] Message from ${message.author.username}: ${message.content}`);
+    console.log(`[eris] ${message.timestamp / 1000}s`);
+});
+
 client.connect();
 
 client.on('error', () => {
