@@ -10,13 +10,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@napi-rs/canvas": "^0.1.65",
+    "chart.js": "^4.4.7",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "chartjs-node-canvas": "^4.1.6",
+    "date-fns": "^4.1.0",
     "detritus-client": "^0.16.3",
     "discord.js": "15.0.0-dev.1738152305-5f463eb9e",
     "dotenv": "^16.4.7",
     "eris": "^0.18.0",
+    "fs": "0.0.1-security",
     "kodkord": "1.0.3-dev-13076173580.0",
+    "node-canvas": "^2.9.0",
     "oceanic.js": "1.11.3-dev.9ca907f",
     "pm2": "^5.4.3",
     "seyfert": "2.2.1-dev-12970267967.0"
-  }
+  },
+  "pnpm.onlyBuiltDependencies": [
+    "canvas"
+  ]
 }

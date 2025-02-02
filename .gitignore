@@ -11,4 +11,3 @@ wheels/
 node_modules
 .env
 .mypy_cache
-results/
